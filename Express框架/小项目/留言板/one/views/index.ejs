@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="list">
+        <%- include('./header.ejs') %> 
+        <% if (entries.length) { %>
+            <% entries.forEach((entry,index)=> { %>
+                <div class="panel">
+                    <div>
+                        <h3>
+                            <%= entry.title %>
+                        </h3>
+                        <p>
+                            <%= entry.content %>
+                        </p>
+                    </div>
+                    <div>
+                        <%= entry.published %>
+                    </div>
+                </div>
+            <% }) %>
+        <% } else { %>
+            No entries! <a href="/new-entry">Add one!</a>
+        <% } %>
+    </div>
+</body>
+</html>
